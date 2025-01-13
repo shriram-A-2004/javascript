@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        /* General reset */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        /* Centering the content */
+        .container {
+            text-align: center;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 400px;
+        }
+
+        /* Heading styles */
+        h1 {
+            margin: 0;
+            color: #333;
+        }
+
+        h2 {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* Input and button styles */
+        input {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* List styles */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 5px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        li button {
+            background-color: #dc3545;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        li button:hover {
+            background-color: #a71d2a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>To-Do List</h1>
+        <h2>A list of items that can be added and deleted</h2>
+        <input id="input" placeholder="Enter a task" />
+        <button onclick="add()">Add</button>
+        <ul id="list-container">
+            <li>
+                hello
+                <button onclick="deleteItem(event)">delete</button>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        var ul = document.getElementById("list-container");
+        var input = document.getElementById("input");
+
+        function add() {
+            // Get the input value
+            var inputValue = input.value.trim();
+            
+            // Check if the input is not empty
+            if (inputValue === "") {
+                alert("Please enter a value!");
+                return;
+            }
+
+            // Create a new list item
+            var listItem = document.createElement("li");
+            listItem.innerHTML = inputValue + ' <button onclick="deleteItem(event)">delete</button>';
+
+            // Append the new list item to the list
+            ul.append(listItem);
+
+            // Clear the input field
+            input.value = "";
+        }
+
+        function deleteItem(event) {
+            // Remove the parent list item
+            event.target.parentElement.remove();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<input id="text" onkeyup="change()" />
+<h1 id="t1"></h1>
+
+<script>
+  var content = document.getElementById("text");
+  var heading = document.getElementById("t1");
+
+  function change() {
+    heading.textContent = content.value;
+  }
+</script>

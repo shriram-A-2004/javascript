@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="title">hello world</h1>
+    <button onclick="change()">change</button>
+  </body>
+</html>
+<script>
+  var hbk = document.getElementById("title"); // Corrected method name
+  console.log(hbk.textContent); // Corrected property name
+  function change() {
+    hbk.textContent = "bye world";
+  }
+</script>
